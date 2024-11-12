@@ -57,6 +57,46 @@ class categoriesModel{
 
         return $query->rowCount();
     }
+
+    //OBTENER ARTISTA POR ID
+
+
+    function getArtistaById($id){
+        $db = $this->getConection();
+
+        $query = $db->prepare('SELECT * FROM artistas WHERE id_artista = ?');
+        $query->execute([$id]);
+
+        $tasks = $query->fetch(PDO::FETCH_OBJ);
+
+        return $tasks;
+    }
+
+    function getArtistas(){
+        $db = $this->getConection();
+
+        $query = $db->prepare('SELECT * FROM artistas');
+        $query->execute();
+
+        $tasks = $query->fetchAll(PDO::FETCH_OBJ);
+        return $tasks;
+    }
+
+    function getArtistasFiltrado($name){
+        $db = $this->getConection();
+
+        $query = $db->prepare('SELECT * FROM artistas WHERE nombre_artista = ?');
+        $query->execute([$name]);
+
+        $tasks = $query->fetchAll(PDO::FETCH_OBJ);
+
+        return $tasks;
+    }
+    
+
+    private function getConection() {
+        return new PDO('mysql:host=localhost;dbname=play_music;charset=utf8', 'root' , '');
+    }
     
 
 }

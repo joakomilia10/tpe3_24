@@ -72,10 +72,9 @@ class Router {
             }
         }
         //Si ninguna ruta coincide con el pedido y se configuró ruta por defecto.
-        if ($this->defaultRoute != null) 
+        if ($this->defaultRoute != null){
             $this->defaultRoute->run($this->request, $this->response);
-        
-        
+        }
     }
 
     public function addMiddleware($middleware) {
