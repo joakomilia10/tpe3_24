@@ -14,7 +14,7 @@
 
     //AGREGO SOFI
     $router->addRoute('artistas/:id'          ,'GET'       ,'artistasApiController'        ,'showArtistas' );
-    $router->addRoute('artista'               ,'POST'      ,'artistasApiController'        ,'create');
+    $router->addRoute('artistas'               ,'POST'      ,'artistasApiController'        ,'create');
     $router->addRoute('artistas'          ,'GET'       ,'artistasApiController'        ,'getFiltrado' );
 
 
