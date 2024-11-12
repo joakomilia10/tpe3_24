@@ -84,9 +84,11 @@ class categoriesModel{
 
     function getArtistasFiltrado($name){
         $db = $this->getConection();
-
-        $query = $db->prepare('SELECT * FROM artistas WHERE nombre_artista = ?');
-        $query->execute([$name]);
+        
+        //like : name que contenga esa palabra
+        $query = $db->prepare('SELECT * FROM artistas WHERE nombre_artista LIKE ?');
+        //permite que la consulta encuentre todos los nombres que contengan esa subcadena en cualquier posición.
+        $query->execute(['%' . $name . '%']);
 
         $tasks = $query->fetchAll(PDO::FETCH_OBJ);
 
