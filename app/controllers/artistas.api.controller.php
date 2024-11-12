@@ -30,7 +30,6 @@ class artistasApiController {
         function create ($req, $res){
 
             $body = $req->body;
-            
             //valido 39:00 VER
             if(empty($body->name) || empty($body->fechaNacimiento) || empty($body->pais)){
                 return $this->view->response("falta completar datos", 400);
