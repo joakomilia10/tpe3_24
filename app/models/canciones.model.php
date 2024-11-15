@@ -46,5 +46,12 @@ class CancionesModel {
         return $tasks;
     }
 
+    function updateCancion($id, $name, $top, $duracion, $genero) {
+        $db = $this->getConection();
+
+        $query = $db->prepare('UPDATE canciones SET nombre_cancion = ?, top_cancion = ?, duracion = ?, genero = ? WHERE id_cancion = ?');
+        return $query->execute([$name, $top, $duracion, $genero, $id]);
+    }
+
 
 }

@@ -45,3 +45,28 @@ El cuerpo debe contener un objeto JSON para los criterios de filtrado, por ejemp
 {
   "name": "Cris"
 }
+
+
+
+ruta para ver todas las canciones:
+http://localhost/tpe3_24/api/canciones
+
+ruta para ver una sola cancion
+http://localhost/tpe3_24/api/canciones/7
+
+ruta para ver las canciones ordenadas por su top:
+http://localhost/tpe3_24/api/canciones?orden=top_cancion
+
+ruta para ver las canciones ordenadas por su nombre:
+http://localhost/tpe3_24/api/canciones?orden=nombre_cancion
+
+ruta para agregar una cancion:
+http://localhost/tpe3_24/api/canciones/7
+ejemplo de body:
+  {
+    "nombre_cancion":"malbec",
+    "top_cancion":1212,
+    "duracion":"02:01:00",
+    "genero":"pop"
+  };
+

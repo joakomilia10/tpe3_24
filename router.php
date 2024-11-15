@@ -11,6 +11,7 @@
     #                  endpoint               verbo         controller                      metodo
     $router->addRoute('canciones'             ,'GET'       ,'cancionesApiController'       ,'showAllCanciones');
     $router->addRoute('canciones/:id'         ,'GET'       ,'cancionesApiController'       ,'showCanciones');
+    $router->addRoute('canciones/:id'         ,'PUT'       ,'cancionesApiController'       ,'updateCanciones');
 
     //AGREGO SOFI
     $router->addRoute('artistas/:id'          ,'GET'       ,'artistasApiController'        ,'showArtistas' );

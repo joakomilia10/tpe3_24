@@ -35,4 +35,28 @@
 
             $this->view->response($tasks);
         }
+
+        public function updateCanciones($req, $res) {
+            $id = $req->params->id;
+
+            $task = $this->model->getCanciones($id);
+
+            if(!$task){
+                return $this->view->response("la tarea con el id=$id no existe", 400);
+            }
+
+            if(empty($req->body->nombre_cancion) || empty($req->body->top_cancion || empty($req->body->duracion) || empty($req->body->genero))){
+                return $this->view->response("datos incompletos", 400);    
+            }
+
+            $nombre_cancion = $req->body->nombre_cancion;
+            $top_cancion = $req->body->top_cancion;
+            $duracion = $req->body->duracion;
+            $genero = $req->body->genero;
+
+            $this->model->updateCancion($id, $nombre_cancion, $top_cancion, $duracion, $genero);
+
+            $task = $this->model->getCanciones($id);
+            $this->view->response($task, 200);
+        }
     }
